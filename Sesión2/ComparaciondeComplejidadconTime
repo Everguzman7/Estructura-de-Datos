@@ -1,5 +1,27 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("universidad cooperativa de colombia, campus cali") 
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
+
 import time
+
+def busqueda_lineal(lista, objetivo):
+    """ Realiza una búsqueda lineal en la lista """
+    for elemento in lista:
+        if elemento == objetivo:
+            return True
+    return False
+
+def busqueda_binaria(lista, objetivo):
+    """ Realiza una búsqueda binaria en la lista ordenada """
+    izquierda, derecha = 0, len(lista) - 1
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+        if lista[medio] == objetivo:
+            return True
+        elif lista[medio] < objetivo:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+    return False
 
 lista_grande = list(range(1, 1000000))
 

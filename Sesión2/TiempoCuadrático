@@ -1,4 +1,6 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
+
 def ordenar_burbuja(lista):
     n = len(lista)
     for i in range(n):

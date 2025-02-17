@@ -1,4 +1,6 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
+
 from itertools import permutations
 
 #se calculan permutaciones para anaiis combinatorio

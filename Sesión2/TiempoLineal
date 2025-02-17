@@ -1,4 +1,6 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
+
 def encontrar_maximo(lista):
     maximo = lista[0]  # Inicializar con el primer elemento
     for num in lista:

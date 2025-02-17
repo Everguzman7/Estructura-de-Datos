@@ -1,16 +1,20 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("univeridad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
+
 def busqueda_binaria(lista, objetivo):
-    inicio, fin = 0, len(lista) - 1
+    inicio, fin = 0, len(lista) - 1 #se defienen los limites de busqueda 
     while inicio <= fin:
-        medio = (inicio + fin) // 2
-        if lista[medio] == objetivo:
+        medio = (inicio + fin) // 2 
+        if lista[medio] == objetivo: # se encontro el objetivo
             return medio
-        elif lista[medio] < objetivo:
+        elif lista[medio] < objetivo: # busca en la mitad derecha 
             inicio = medio + 1
-        else:
+        else: # busca en la mitad izquierda 
             fin = medio - 1
-    return -1
+    return - 1 # el elemento no esta en la lista 
 
 numeros = [1, 3, 5, 7, 9, 11, 13, 15]
+
+#realiza la busqueda del numero 7 en la lista y muestra el resultado 
 print(busqueda_binaria(numeros, 7))  # Output: 3 (posición del número)
 

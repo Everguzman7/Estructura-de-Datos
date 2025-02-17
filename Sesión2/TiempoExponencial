@@ -1,7 +1,10 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
+
 def fibonacci(n):
     if n <= 1:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
 
+#calcula y muestra el termino 6 de la secuencia fibonacci
 print(fibonacci(6))  # Output: 8

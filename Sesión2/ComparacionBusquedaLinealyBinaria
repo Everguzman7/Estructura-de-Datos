@@ -1,4 +1,5 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
 def busqueda_lineal(lista, objetivo):
     for i in range(len(lista)):
         if lista[i] == objetivo:

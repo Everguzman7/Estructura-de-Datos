@@ -1,14 +1,17 @@
-print("univeridad cooperativa de colombia campus cali, Ever Wisney Rodriguez, 17, febrero, 2025")
+print("univeridad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 17, febrero, 2025")
+
 def merge_sort(lista):
     if len(lista) <= 1:
         return lista
-    medio = len(lista) // 2
-    izquierda = merge_sort(lista[:medio])
-    derecha = merge_sort(lista[medio:])
-    return fusionar(izquierda, derecha)
+    medio = len(lista) // 2 #encuentra el punto medio de la lista 
+    izquierda = merge_sort(lista[:medio]) # ordena de mitad a izquierda
+    derecha = merge_sort(lista[medio:]) # ordena de mitad a derecha 
+    return fusionar(izquierda, derecha) # fusiona ambas mitades ordenadas
 
 def fusionar(izquierda, derecha):
     resultado = []
+    # compara los elemnetos de ambas listas y agrega el menor al resultado 
     while izquierda and derecha:
         if izquierda[0] < derecha[0]:
             resultado.append(izquierda.pop(0))
@@ -17,4 +20,6 @@ def fusionar(izquierda, derecha):
     return resultado + izquierda + derecha
 
 numeros = [8, 3, 5, 1, 9, 6]
+
+# ordena la lista e imprime el resultado 
 print(merge_sort(numeros))  # Output: [1, 3, 5, 6, 8, 9]
