@@ -1,0 +1,59 @@
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 23, ferbreo, 2025")
+
+import time
+
+import random
+
+# Implementación de Bubble Sort (O(n²))
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+# Implementación de Merge Sort (O(n log n))
+def merge_sort(arr):
+    if len(arr) > 1:
+        medio  = len(arr) // 2
+        derecha, izquierda = arr[:medio], arr[medio:]
+        merge_sort(derecha)
+        merge_sort(izquierda)
+
+        i = j = k = 0
+        while i < len(derecha) and j < len(izquierda):
+            if derecha[i] < izquierda[j]:
+                arr[k] = derecha[i]
+                i += 1
+            else:
+                arr[k] = izquierda[j]
+                j += 1
+            k += 1
+
+        while i < len(derecha):
+            arr[k] = derecha[i]
+            i += 1
+            k += 1
+
+        while j < len(izquierda):
+            arr[k] = izquierda[j]
+            j += 1
+            k += 1
+
+# lista aleatoria
+size = 10000
+arr1 = [random.randint(0, size) for _ in range(size)]
+arr2 = arr1.copy()
+
+# medición tiempo de Bubble Sort
+start = time.time()
+bubble_sort(arr1)
+end = time.time()
+print(f"Tiempo de Bubble Sort: {(end - start) * 1e9:.2f} ns")
+
+# Medición tiempo de Merge Sort
+start = time.time()
+merge_sort(arr2)
+end = time.time()
+print(f"Tiempo de Merge Sort: {(end - start) * 1e9:.2f} ns")

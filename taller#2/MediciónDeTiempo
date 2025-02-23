@@ -1,0 +1,26 @@
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 23, febrero, 2025")
+
+
+import time
+
+def insertar_lista(n):
+    lista = []
+    start_time = time.time()  # Tiempo de inicio
+    for i in range(n):
+        lista.append(i)
+    end_time = time.time()  # Tiempo de fin
+    print(f"Tiempo de inserción en lista con {n} elementos: {end_time - start_time} segundos")
+
+def insertar_diccionario(n):
+    diccionario = {}
+    start_time = time.time()  # Tiempo de inicio
+    for i in range(n):
+        diccionario[i] = i
+    end_time = time.time()  # Tiempo de fin
+    print(f"Tiempo de inserción en diccionario con {n} elementos: {end_time - start_time} segundos")
+
+# Llamadas a las funciones
+n = 100000  # Puedes cambiar este valor para probar con más elementos
+insertar_lista(n)
+insertar_diccionario(n)

@@ -1,0 +1,31 @@
+print("universidad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 23, ferbreo, 2025")
+
+
+# 2. Factorial: Recursivo y Programación Dinámica
+
+import time
+
+def factorial_recursivo(n):
+    return 1 if n <= 1 else n * factorial_recursivo(n - 1)
+
+def factorial_dinamico(n):
+    resultado = 1
+    for i in range(2, n + 1):
+        resultado *= i
+    return resultado
+
+# Valor de prueba para calcular el factorial
+n = 10  # Puedes cambiarlo por un número mayor
+
+# Medición tiempo del factorial recursivo
+start = time.time()
+resultado_recursivo = factorial_recursivo(n)
+end = time.time()
+print(f"Factorial Recursivo de {n}: {resultado_recursivo} en {(end - start) * 1e9:.2f} ns")
+
+# Medición tiempo del factorial dinámico
+start = time.time()
+resultado_dinamico = factorial_dinamico(n)
+end = time.time()
+print(f"Factorial Dinámico de {n}: {resultado_dinamico} en {(end - start) * 1e9:.2f} ns")

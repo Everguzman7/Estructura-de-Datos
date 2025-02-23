@@ -1,5 +1,5 @@
 print("universidad cooperativa de colombia, campus cali")
-print("Ever Wisney Rodriguez, 17, febrero, 2025")
+print("Ever Wisney Rodriguez, 17, ferbreo, 2025")
 
 def obtener_primero(lista):
     return lista[0] #Siempre devuelve el primer elemento en O(1)
