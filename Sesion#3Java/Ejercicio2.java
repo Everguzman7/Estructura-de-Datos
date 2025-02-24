@@ -1,14 +1,18 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
- 
-public class Ejercicio1 {
-    public static int obtenerPrimerElemento(int[] arr) {
-        return arr[0];
+
+public class Ejercicio2 {
+    public static int sumaElementos(int[] arr) {
+        int suma = 0;
+        for (int num : arr) {
+            suma += num;
+        }
+        return suma;
     }
  
     public static void main(String[] args) {
-
+        
         // Datos del encabezado
         String nombre = "Ever Rodriguez";
         String campus = "Campus Cali, U. Cooperativa de Colombia";
@@ -27,10 +31,8 @@ public class Ejercicio1 {
         System.out.println("| 📂 Repositorio Git: " + repositorioGit);
         System.out.println("+----------------------------------------");
         System.out.println();
-
-
         Scanner scanner = new Scanner(System.in);
-        
+ 
         System.out.print("Ingrese el tamaño del array: ");
         int n = scanner.nextInt();
         int[] arr = new int[n];
@@ -40,8 +42,8 @@ public class Ejercicio1 {
             arr[i] = scanner.nextInt();
         }
  
-        System.out.println("El primer elemento del array es: " + obtenerPrimerElemento(arr));
-
+        System.out.println("La suma de los elementos es: " + sumaElementos(arr));
         scanner.close();
     }
+
 }
