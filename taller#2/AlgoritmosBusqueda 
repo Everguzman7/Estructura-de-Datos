@@ -1,0 +1,33 @@
+print("univeridad cooperativa de colombia, campus cali")
+print("Ever Wisney Rodriguez, 23, febrero, 2025")
+
+# Analisis de complejidad de algoritmos de busqueda
+
+def busqueda_lineal(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i  # Devuelve el índice si se encuentra el valor
+    return -1  # Si no se encuentra el valor, devuelve -1
+
+def busqueda_binaria(arr, target):
+    inicio, fin = 0, len(arr) - 1
+    while inicio <= fin:
+        medio = (inicio + fin) // 2  # Encuentra el índice del medio
+        if arr[medio] == target:
+            return medio  # Si el valor en medio es el que buscamos, lo devolvemos
+        elif arr[medio] < target:
+            inicio = medio + 1  # Si el valor en medio es menor, buscamos en la mitad derecha
+        else:
+            fin = medio - 1  # Si el valor en medio es mayor, buscamos en la mitad izquierda
+    return -1  # Si no encontramos el valor, retornamos -1
+
+arr = [1, 3, 5, 7, 9, 11, 13, 15]
+target = 7
+
+# Búsqueda lineal
+resultado_lineal = busqueda_lineal(arr, target)
+print("Búsqueda Lineal:", resultado_lineal)  # Salida: 3 (índice de 7)
+
+# Búsqueda binaria
+resultado_binaria = busqueda_binaria(arr, target)
+print("Búsqueda Binaria:", resultado_binaria)  # Salida: 3 (índice de 7)
