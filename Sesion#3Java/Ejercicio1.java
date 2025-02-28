@@ -1,7 +1,8 @@
+
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
- 
+import java.time.format.DateTimeFormatter;
+
 public class Ejercicio1 {
     public static int obtenerPrimerElemento(int[] arr) {
         return arr[0];
@@ -30,8 +31,8 @@ public class Ejercicio1 {
 
 
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Ingrese el tamaño del array: ");
+
+        System.out.println("Ingrese el tamaño del array:");
         int n = scanner.nextInt();
         int[] arr = new int[n];
  
