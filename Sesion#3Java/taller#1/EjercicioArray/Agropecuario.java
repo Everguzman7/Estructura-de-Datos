@@ -1,18 +1,14 @@
-<<<<<<< HEAD
-=======
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
->>>>>>> 2218bc5 (Reemplazar archivo de algoritmos de búsqueda con nueva implementación)
 import java.util.Scanner;
 
-public class Administrador {
-    public static String obtenerPrimerPaciente(String[] Paciente) {
-        return Paciente[0]; // Retorna el primer paciente
-    }
-    public static void main(String[] args) {
-<<<<<<< HEAD
-=======
 
+public class Agropecuario {
+    public static String obtenerPrimerHumedad(String[] Humedad) {
+        return Humedad[0]; // Retorna el primer animal
+    }
+
+    public static void main(String[] args) {
         // Datos del encabezado
         String nombre = "Ever Rodriguez";
         String campus = "Campus Cali, U. Cooperativa de Colombia";
@@ -32,31 +28,18 @@ public class Administrador {
         System.out.println("+----------------------------------------");
         System.out.println();
 
->>>>>>> 2218bc5 (Reemplazar archivo de algoritmos de búsqueda con nueva implementación)
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Ingrese el numero de pacientes: ");
+
+        System.out.print("Ingrese el numero de lecturas de humedad: ");
         int n = scanner.nextInt();
-
-        String[] Paciente = new String[n];
- 
-        System.out.println("Ingrese los nombres de los pacientes:");
+        String[] Humedad = new String[n];
+        System.out.println("Ingrese los nombres de los animales:");
         for (int i = 0; i < n; i++) {
-            System.out.println("Paciente " + (i + 1) + ": ");
-            Paciente[i] = scanner.next();
-        
+            System.out.println("Humedad " + (i + 1) + ": ");
+            Humedad[i] = scanner.next();
         }
- 
-<<<<<<< HEAD
-        System.out.println("El primer elemento del array es: " + obtenerPrimerPaciente(Paciente));
-=======
-        System.out.println("El primer paciente es: " + obtenerPrimerPaciente(Paciente));
->>>>>>> 2218bc5 (Reemplazar archivo de algoritmos de búsqueda con nueva implementación)
-        scanner.close();
+        System.out.println("La primera lectura de humedad es: " + obtenerPrimerHumedad(Humedad));
+        scanner.close();       
     }
-
-        
-
-    
 
 }

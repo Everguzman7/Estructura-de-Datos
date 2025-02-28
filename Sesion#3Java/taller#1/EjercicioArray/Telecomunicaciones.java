@@ -1,18 +1,12 @@
-<<<<<<< HEAD
-=======
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
->>>>>>> 2218bc5 (Reemplazar archivo de algoritmos de búsqueda con nueva implementación)
 import java.util.Scanner;
 
-public class Administrador {
-    public static String obtenerPrimerPaciente(String[] Paciente) {
-        return Paciente[0]; // Retorna el primer paciente
+public class Telecomunicaciones {
+    public static String obtenerprimerRouter(String[] router) {
+        return router[0]; // Retorna el primer router
     }
     public static void main(String[] args) {
-<<<<<<< HEAD
-=======
-
         // Datos del encabezado
         String nombre = "Ever Rodriguez";
         String campus = "Campus Cali, U. Cooperativa de Colombia";
@@ -32,31 +26,21 @@ public class Administrador {
         System.out.println("+----------------------------------------");
         System.out.println();
 
->>>>>>> 2218bc5 (Reemplazar archivo de algoritmos de búsqueda con nueva implementación)
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Ingrese el numero de pacientes: ");
+
+        System.out.print("Ingrese el numero de routers: ");
         int n = scanner.nextInt();
 
-        String[] Paciente = new String[n];
- 
-        System.out.println("Ingrese los nombres de los pacientes:");
+        String[] router = new String[n];
+
+        System.out.println("Ingrese los nombres de los routers:");
         for (int i = 0; i < n; i++) {
-            System.out.println("Paciente " + (i + 1) + ": ");
-            Paciente[i] = scanner.next();
-        
+            System.out.println("Router " + (i + 1) + ": ");
+            router[i] = scanner.next();
         }
- 
-<<<<<<< HEAD
-        System.out.println("El primer elemento del array es: " + obtenerPrimerPaciente(Paciente));
-=======
-        System.out.println("El primer paciente es: " + obtenerPrimerPaciente(Paciente));
->>>>>>> 2218bc5 (Reemplazar archivo de algoritmos de búsqueda con nueva implementación)
+
+        System.out.println("El primer nodo de la lista es: " + obtenerprimerRouter(router));
         scanner.close();
     }
-
-        
-
     
-
 }
