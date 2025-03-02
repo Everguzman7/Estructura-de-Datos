@@ -2,19 +2,21 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Torres {
-    public static void OrdenarTorres(int[] torres) {
-        int n = torres.length;
+public class Agricola {
+    public static void OrdenarParcelas(int[] parcelas) {
+        int n = parcelas.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - 1 - i; j++) { // Optimización del bucle interno
-                if (torres[j] > torres[j + 1]) {
-                    int aux = torres[j];
-                    torres[j] = torres[j + 1];
-                    torres[j + 1] = aux;
+                if (parcelas[j] > parcelas[j + 1]) {
+                    int aux = parcelas[j];
+                    parcelas[j] = parcelas[j + 1];
+                    parcelas[j + 1] = aux;
                 }
             }
-        }
+        }                   
     }
+    
+
 
     public static void main(String[] args) {
         // Datos del encabezado
@@ -35,22 +37,23 @@ public class Torres {
         System.out.println("| 📂 Repositorio Git: " + repositorioGit);
         System.out.println("+----------------------------------------");
         System.out.println();
+    
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese la cantidad de torres: ");
+        System.out.print("Ingrese la cantidad de parcelas en el cultivo : ");
         int n = scanner.nextInt();
-        int[] torres = new int[n];
+        int[] parcelas = new int[n];
 
-        System.out.println("Ingrese la cantidad de señal:");
-        for (int i = 0; i < n; i++) {
-            torres[i] = scanner.nextInt();
+        System.out.println("Ingrese la fecha de siembra de las  parcelas:");
+        for (int i = 0; i < n; i++) {   
+            parcelas[i] = scanner.nextInt();
         }
 
-        OrdenarTorres(torres);
+        Agricola.OrdenarParcelas(parcelas);
 
-        System.out.println("Torres ordenadas por intensidad de señal:");
+        System.out.println("Parcelas ordenadas por fecha: ");
         for (int i = 0; i < n; i++) {
-            System.out.println(torres[i] + " ");
+            System.out.println(parcelas[i] + " ");
         }
 
         scanner.close();

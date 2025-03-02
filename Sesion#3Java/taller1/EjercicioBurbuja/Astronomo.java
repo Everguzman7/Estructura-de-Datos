@@ -2,15 +2,15 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Torres {
-    public static void OrdenarTorres(int[] torres) {
-        int n = torres.length;
+public class Astronomo {
+    public static void OrdenarEstrellas(int[] estrellas) {
+        int n = estrellas.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - 1 - i; j++) { // Optimización del bucle interno
-                if (torres[j] > torres[j + 1]) {
-                    int aux = torres[j];
-                    torres[j] = torres[j + 1];
-                    torres[j + 1] = aux;
+                if (estrellas[j] > estrellas[j + 1]) {
+                    int aux = estrellas[j];
+                    estrellas[j] = estrellas[j + 1];
+                    estrellas[j + 1] = aux;
                 }
             }
         }
@@ -35,24 +35,26 @@ public class Torres {
         System.out.println("| 📂 Repositorio Git: " + repositorioGit);
         System.out.println("+----------------------------------------");
         System.out.println();
+        
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese la cantidad de torres: ");
+        System.out.print("Ingrese la cantidad de espectros de estrellas: ");
         int n = scanner.nextInt();
-        int[] torres = new int[n];
+        int[] estrellas = new int[n];
 
-        System.out.println("Ingrese la cantidad de señal:");
+        System.out.println("Ingrese la temperatura de las estrellas:");
         for (int i = 0; i < n; i++) {
-            torres[i] = scanner.nextInt();
+            estrellas[i] = scanner.nextInt();
         }
 
-        OrdenarTorres(torres);
+        OrdenarEstrellas(estrellas);
 
-        System.out.println("Torres ordenadas por intensidad de señal:");
+        System.out.println("Estrellas ordenadas por temperatura para analizar su evolucion:");
         for (int i = 0; i < n; i++) {
-            System.out.println(torres[i] + " ");
+            System.out.println(estrellas[i] + " ");
         }
 
         scanner.close();
     }
+    
 }

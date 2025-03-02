@@ -2,22 +2,24 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Torres {
-    public static void OrdenarTorres(int[] torres) {
-        int n = torres.length;
+public class Credito {
+    public static void OrdenarClientes(int[] clientes) {
+        int n = clientes.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - 1 - i; j++) { // Optimización del bucle interno
-                if (torres[j] > torres[j + 1]) {
-                    int aux = torres[j];
-                    torres[j] = torres[j + 1];
-                    torres[j + 1] = aux;
+                if (clientes[j] > clientes[j + 1]) {
+                    int aux = clientes[j];
+                    clientes[j] = clientes[j + 1];
+                    clientes[j + 1] = aux;
                 }
             }
         }
     }
 
+
     public static void main(String[] args) {
-        // Datos del encabezado
+
+    // Datos del encabezado
         String nombre = "Ever Rodriguez";
         String campus = "Campus Cali, U. Cooperativa de Colombia";
         String repositorioGit = " ";
@@ -35,24 +37,28 @@ public class Torres {
         System.out.println("| 📂 Repositorio Git: " + repositorioGit);
         System.out.println("+----------------------------------------");
         System.out.println();
+        
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese la cantidad de torres: ");
+        System.out.print("Ingrese la cantidad de clientes: ");
         int n = scanner.nextInt();
-        int[] torres = new int[n];
+        int[] clientes = new int[n];
 
-        System.out.println("Ingrese la cantidad de señal:");
+        System.out.println("Ingrese el monto de egresos de los clientes:");
         for (int i = 0; i < n; i++) {
-            torres[i] = scanner.nextInt();
+            clientes[i] = scanner.nextInt();
         }
 
-        OrdenarTorres(torres);
+        Credito.OrdenarClientes(clientes);
 
-        System.out.println("Torres ordenadas por intensidad de señal:");
+        System.out.println("Clientes ordenados por monto de egresos :");
         for (int i = 0; i < n; i++) {
-            System.out.println(torres[i] + " ");
+            System.out.println(clientes[i] + " ");
         }
 
         scanner.close();
     }
+
 }
+    
+

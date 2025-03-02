@@ -1,3 +1,14 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.format.settings.url": "./formatter.xml",
+    "java.format.settings.profile": "GoogleStyle",
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.errors.incompleteClasspath.severity": "ignore",
+
 }
