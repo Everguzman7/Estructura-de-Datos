@@ -35,7 +35,7 @@ public class Cientifico {
         int n = scanner.nextInt();
         int[] Temperatura = new int[n];
  
-        System.out.println("Ingrese las temperaturas registradas en el dia:");
+        System.out.println("Ingrese el numero de grados de temperaturas registradas en el dia:");
         for (int i = 0; i < n; i++) {
             Temperatura[i] = scanner.nextInt();
         }

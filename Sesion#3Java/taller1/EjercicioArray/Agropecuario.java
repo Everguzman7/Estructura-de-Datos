@@ -33,7 +33,7 @@ public class Agropecuario {
         System.out.print("Ingrese el numero de lecturas de humedad: ");
         int n = scanner.nextInt();
         String[] Humedad = new String[n];
-        System.out.println("Ingrese los nombres de los animales:");
+        System.out.println("Ingrese los porcentajes de humedad:");
         for (int i = 0; i < n; i++) {
             System.out.println("Humedad " + (i + 1) + ": ");
             Humedad[i] = scanner.next();

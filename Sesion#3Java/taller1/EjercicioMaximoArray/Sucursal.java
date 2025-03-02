@@ -43,7 +43,7 @@ public class Sucursal {
             array[i] = sc.nextInt(); // Corrección: usar 'sc' en lugar de 'Scanner'
         }
 
-        System.out.println("La mayor transaccion  es: " + maximo(array));
+        System.out.println("La mayor transaccion 3 es: " + maximo(array));
 
         sc.close(); // Corrección: cerrar el 'Scanner' correctamente
     }
