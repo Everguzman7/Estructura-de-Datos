@@ -17,6 +17,7 @@ public class Astronomo {
     }
 
     public static void main(String[] args) {
+        
         // Datos del encabezado
         String nombre = "Ever Rodriguez";
         String campus = "Campus Cali, U. Cooperativa de Colombia";
