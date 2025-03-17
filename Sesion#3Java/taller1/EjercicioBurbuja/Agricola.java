@@ -13,10 +13,8 @@ public class Agricola {
                     parcelas[j + 1] = aux;
                 }
             }
-        }                   
+        }
     }
-    
-
 
     public static void main(String[] args) {
         // Datos del encabezado
@@ -37,7 +35,7 @@ public class Agricola {
         System.out.println("| 📂 Repositorio Git: " + repositorioGit);
         System.out.println("+----------------------------------------");
         System.out.println();
-    
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese la cantidad de parcelas en el cultivo : ");
@@ -45,7 +43,7 @@ public class Agricola {
         int[] parcelas = new int[n];
 
         System.out.println("Ingrese la fecha de siembra de las  parcelas:");
-        for (int i = 0; i < n; i++) {   
+        for (int i = 0; i < n; i++) {
             parcelas[i] = scanner.nextInt();
         }
 
@@ -58,5 +56,5 @@ public class Agricola {
 
         scanner.close();
     }
-    
+
 }
