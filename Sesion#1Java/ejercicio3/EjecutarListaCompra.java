@@ -1,4 +1,35 @@
-import java.util.Scanner;
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "cppdbg",
+      "request": "launch",
+      "name": "Debug C++ Program",
+      "program": "${workspaceFolder}/${input:cppExecutable}",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "C/C++: g++ compilar archivo activo"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "cppExecutable",
+      "description": "Enter the relative path to the C++ executable you want to debug"
+    }
+  ]
+}import java.util.Scanner;
 
 public class EjecutarListaCompra {
     public static void main(String[] args) {
