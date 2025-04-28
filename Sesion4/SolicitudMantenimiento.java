@@ -108,10 +108,10 @@ public class SolicitudMantenimiento {
 
      
             // Agregar solicitudes de mantenimiento con diferentes prioridades
-            lista.agregarSolicitud("M001", "Bomba de Agua", "media");
-            lista.agregarSolicitud("M002", "Generador Principal", "alta");
-            lista.agregarSolicitud("M003", "Sistema de Ventilación", "baja");
-            lista.agregarSolicitud("M004", "Sensor de Gas", "alta");
+            lista.agregarSolicitud("M001", "motbomba agua", "media");
+            lista.agregarSolicitud("M002", "Generador Energia", "alta");
+            lista.agregarSolicitud("M003", "Sistema de Aire Acondicionado", "baja");
+            lista.agregarSolicitud("M004", "valvula de Gas", "alta");
      
             // Mostrar solicitudes pendientes
             System.out.println("Solicitudes pendientes:");
