@@ -1,5 +1,4 @@
 require 'csv'
-require 'set'
 
 # Datos del encabezado
 nombre = "Ever Rodriguez"
@@ -17,31 +16,36 @@ puts "| 📅 Fecha y hora: #{fecha_hora}"
 puts "| 📂 Repositorio Git: #{repositorio_git}"
 puts "+----------------------------------------"
 puts
-
  
-def cargar_grafo(archivo)
+def cargar_grafo_bellman(archivo)
   grafo = Hash.new { |h, k| h[k] = {} }
   CSV.foreach(archivo, headers: true) do |row|
-    origen, destino, peso = row['Origen'], row['Destino'], row['Peso'].to_i
-    grafo[origen][destino] = peso
+    origen, destino, peso = row['Origen'], row['Destino'], row['Peso'].to_f
     grafo[origen][destino] = peso
   end
   grafo
 end
  
-def dijkstra(grafo, inicio)
+def bellman_ford(grafo, inicio)
+  nodos = grafo.keys | grafo.values.flat_map(&:keys)
   dist = Hash.new(Float::INFINITY)
   dist[inicio] = 0
-  visitados = Set.new
  
-  until visitados.size == grafo.size
-    actual = dist.reject { |nodo, _| visitados.include?(nodo) }.min_by(&:last)&.first
-    break unless actual
-    visitados.add(actual)
+  (nodos.size - 1).times do
+    grafo.each do |u, adyacentes|
+      adyacentes.each do |v, peso|
+        if dist[u] + peso < dist[v]
+          dist[v] = dist[u] + peso
+        end
+      end
+    end
+  end
  
-    grafo[actual].each do |vecino, peso|
-      if dist[actual] + peso < dist[vecino]
-        dist[vecino] = dist[actual] + peso
+  # Verificar ciclos negativos
+  grafo.each do |u, adyacentes|
+    adyacentes.each do |v, peso|
+      if dist[u] + peso < dist[v]
+        raise #"Ciclo negativo detectado entre #{u} y #{v}\"
       end
     end
   end
@@ -49,8 +53,6 @@ def dijkstra(grafo, inicio)
   dist
 end
  
-grafo = cargar_grafo('grafo_dijkstra.csv')
-puts dijkstra(grafo, 'Centro')
-
-   
+grafo = cargar_grafo_bellman('grafo_bellman.csv')
+puts bellman_ford(grafo, 'USD')
 

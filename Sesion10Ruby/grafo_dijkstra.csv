@@ -1,7 +1,5 @@
-
-
 Origen,Destino,Peso
-Centro,ZonaNorte,50
-Centro,ZonaSur,20
-ZonaNorte,ZonaEste,30
-ZonaSur,ZonaEste,40
+Centro,ZonaNorte,5
+Centro,ZonaSur,2
+ZonaNorte,ZonaEste,3
+ZonaSur,ZonaEste,4
