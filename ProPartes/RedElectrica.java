@@ -10,14 +10,12 @@ public class RedElectrica {
         System.out.println("4. Iniciar/Detener simulación de fallos");
         System.out.println("5. Iniciar/Detener simulación de consumo");
         System.out.println("6. Ver y procesar alertas");
-        System.out.println("7. Ver nodos activos");
-        System.out.println("8. Salir");
+        System.out.println("7. Salir");
         System.out.print("Seleccione una opción: ");
     }
 
     public static void iniciarMenu(Grafo grafo) {
         ColaAlertas alertas = new ColaAlertas(10);
-        ListaEnlazada lista = new ListaEnlazada();
         SimuladorFallos simuladorFallos = new SimuladorFallos(grafo, alertas);
         SimuladorConsumo simuladorConsumo = new SimuladorConsumo(grafo);
 
@@ -43,9 +41,9 @@ public class RedElectrica {
                         FloydWarshall floydWarshall = new FloydWarshall();
                         int[][] distancias = floydWarshall.calcularRutasMinimas(grafo.toMatrix());
                         System.out.println("Matriz de distancias mínimas:");
-                        for (int i = 0; i < distancias.length; i++) {
-                            for (int j = 0; j < distancias[i].length; j++) {
-                                System.out.print((distancias[i][j] == Integer.MAX_VALUE ? "INF" : distancias[i][j]) + " ");
+                        for (int[] fila : distancias) {
+                            for (int valor : fila) {
+                                System.out.print((valor == Integer.MAX_VALUE ? "INF" : valor) + " ");
                             }
                             System.out.println();
                         }
@@ -80,11 +78,13 @@ public class RedElectrica {
                         }
                     }
                     case 6 -> {
+                        System.out.println("Procesando alertas...");
                         while (alertas.hayAlertas()) {
                             alertas.procesarAlerta();
                         }
+                        System.out.println("No hay más alertas pendientes.");
                     }
-                    case 7 -> lista.imprimir();
+                    case 7 -> System.out.println("Opción no válida.");
                     case 8 -> salir = true;
                     default -> System.out.println("Opción no válida.");
                 }

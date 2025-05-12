@@ -1,50 +1,51 @@
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
-class SimuladorFallos {
+class SimuladorFallos extends Thread {
     private final Grafo grafo;
     private final ColaAlertas alertas;
-    private final Timer temporizador;
-    private int iteraciones;
+    private boolean ejecutando = false;
 
     public SimuladorFallos(Grafo grafo, ColaAlertas alertas) {
         this.grafo = grafo;
         this.alertas = alertas;
-        this.temporizador = new Timer();
-        this.iteraciones = 0;
     }
 
     public void iniciar() {
-        temporizador.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (iteraciones >= 5) {
-                    temporizador.cancel();
-                    return;
-                }
-
-                Random random = new Random();
-                String nodo = grafo.getNodos().stream()
-                        .skip(random.nextInt(grafo.getNodos().size()))
-                        .findFirst()
-                        .orElse(null);
-
-                if (nodo != null) {
-                    alertas.agregarAlerta("Fallo detectado en el nodo: " + nodo);
-                    System.out.println("Alerta generada: " + alertas);
-                }
-
-                iteraciones++;
-            }
-        }, 0, 2000); // Ejecutar cada 2 segundos
+        if (!ejecutando) {
+            ejecutando = true;
+            new Thread(this).start();
+        }
     }
 
     public void detener() {
-        temporizador.cancel();
+        ejecutando = false;
     }
 
     public boolean estaEjecutando() {
-        return iteraciones < 5;
+        return ejecutando;
+    }
+
+    @Override
+    public void run() {
+        Random random = new Random();
+        while (ejecutando) {
+            String nodo = grafo.getNodos().stream()
+                    .skip(random.nextInt(grafo.getNodos().size()))
+                    .findFirst()
+                    .orElse(null);
+            if (nodo != null) {
+                alertas.agregarAlerta("Fallo detectado en el nodo: " + nodo);
+                System.out.println("[SimuladorFallos] Fallo detectado en el nodo: " + nodo);
+            } else {
+                System.out.println("[SimuladorFallos] No se pudo seleccionar un nodo.");
+            }
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+        System.out.println("[SimuladorFallos] Simulación detenida.");
     }
 }
