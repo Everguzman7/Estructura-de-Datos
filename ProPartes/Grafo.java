@@ -56,4 +56,8 @@ public class Grafo {
         List<String> nodos = new ArrayList<>(adyacencias.keySet());
         return nodos.get(index);
     }
+
+    public int getNumeroNodos() {
+        return adyacencias.size();
+    }
 }
