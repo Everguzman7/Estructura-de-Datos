@@ -28,6 +28,7 @@ class SimuladorFallos extends Thread {
     @Override
     public void run() {
         Random random = new Random();
+        System.out.println("[SimuladorFallos] Simulación iniciada.");
         while (ejecutando) {
             String nodo = grafo.getNodos().stream()
                     .skip(random.nextInt(grafo.getNodos().size()))
