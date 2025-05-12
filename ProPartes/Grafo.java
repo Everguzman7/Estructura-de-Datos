@@ -1,62 +1,59 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-// Clase que representa el grafo (red eléctrica)
 public class Grafo {
-    private Map<String, Nodo> nodos = new HashMap<>(); // Mapa para almacenar los nodos, la clave es el nombre del nodo
-    private Map<String, Map<String, Double>> adyacencias = new HashMap<>();
-    // Mapa para almacenar las conexiones (aristas) entre los nodos
-    // La clave del primer mapa es el nodo de origen, y el valor es otro mapa
-    // donde la clave es el nodo de destino y el valor es el peso de la arista (pérdidas)
+    private final Map<String, Map<String, Integer>> adyacencias;
 
-    // Método para agregar un nodo al grafo
-    public void agregarNodo(String nombre) {
-        nodos.put(nombre, new Nodo(nombre)); // Crea un nuevo nodo y lo añade al mapa de nodos
-        adyacencias.put(nombre, new HashMap<>()); // Inicializa la lista de adyacencia para este nodo
+    public Grafo() {
+        this.adyacencias = new HashMap<>();
     }
 
-    // Método para agregar una arista (conexión) entre dos nodos
-    public void agregarArista(String origen, String destino, double peso) {
-        // Verifica si los nodos de origen y destino existen
-        if (!nodos.containsKey(origen)) {
-            System.out.println("Error: El nodo de origen '" + origen + "' no existe en el grafo.");
-            return;
+    public void agregarNodo(String nodo) {
+        adyacencias.putIfAbsent(nodo, new HashMap<>());
+    }
+
+    public void agregarArista(String origen, String destino, int peso) {
+        adyacencias.putIfAbsent(origen, new HashMap<>());
+        adyacencias.get(origen).put(destino, peso);
+    }
+
+    public List<String> getNodos() {
+        return new ArrayList<>(adyacencias.keySet());
+    }
+
+    public Map<String, Integer> getAdyacentes(String nodo) {
+        return adyacencias.getOrDefault(nodo, new HashMap<>());
+    }
+
+    public int[][] toMatrix() {
+        int n = adyacencias.size();
+        int[][] matriz = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matriz[i][j] = Integer.MAX_VALUE; // Inicializar con infinito
+            }
         }
-        if (!nodos.containsKey(destino)) {
-            System.out.println("Error: El nodo de destino '" + destino + "' no existe en el grafo.");
-            return;
+
+        List<String> nodos = new ArrayList<>(adyacencias.keySet());
+        for (int i = 0; i < nodos.size(); i++) {
+            String origen = nodos.get(i);
+            for (Map.Entry<String, Integer> entrada : adyacencias.get(origen).entrySet()) {
+                String destino = entrada.getKey();
+                int peso = entrada.getValue();
+                int j = nodos.indexOf(destino);
+                matriz[i][j] = peso;
+            }
         }
-        adyacencias.get(origen).put(destino, peso); // Agrega la arista al mapa de adyacencias
+        return matriz;
     }
 
-    // Método para desconectar dos nodos
-    public void desconectar(String origen, String destino) {
-        if (!nodos.containsKey(origen)) {
-            System.out.println("Error: El nodo de origen '" + origen + "' no existe en el grafo.");
-            return;
-        }
-        if (adyacencias.containsKey(origen)) {
-            adyacencias.get(origen).remove(destino);
-        }
+    public int getNodoIndex(String nodo) {
+        List<String> nodos = new ArrayList<>(adyacencias.keySet());
+        return nodos.indexOf(nodo);
     }
 
-    // Método para obtener los vecinos de un nodo
-    public Map<String, Double> getVecinos(String nodo) {
-        return adyacencias.get(nodo); // Retorna el mapa de vecinos del nodo dado
-    }
-
-    // Método para obtener todos los nodos del grafo
-    public Set<String> getNodos() {
-        return nodos.keySet(); // Retorna el conjunto de nombres de los nodos
-    }
-
-    // Método para obtener un nodo por su nombre
-    public Nodo getNodo(String nombre) {
-        return nodos.get(nombre);
-    }
-
-    public Map<String, Map<String, Double>> getAdyacencias() {
-        return adyacencias;
+    public String getNodoName(int index) {
+        List<String> nodos = new ArrayList<>(adyacencias.keySet());
+        return nodos.get(index);
     }
 }
